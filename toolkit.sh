@@ -2,7 +2,7 @@
 
 # إعداد الواجهة
 clear
-figlet -f slant "Anoymoys Jordan" | boxes -d ada-box -a c
+figlet "Anoymoys Jordan" | boxes -d ada-box -a c
 echo -e "\n[1] Scan ports Tool"
 echo "[2] Vulnerability Scanner"
 echo "[3] Network Analysis Tool"
