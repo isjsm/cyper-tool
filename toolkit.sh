@@ -1,45 +1,45 @@
 #!/bin/bash
 
 clear
-figlet -f slant "My Toolkit" | boxes -d ada-box -a c
+figlet -f slant "Anoymous" | boxes -d ada-box -a c
 
 TOOLS_DIR="tools"
 
 # دالة حذف الأداة
 delete_tool() {
-    echo -e "\n------- حذف أداة -------"
-    echo "اختر الأداة التي تريد حذفها:"
+    echo -e "\n------- Delete Tool -------"
+    echo "Select the tool to delete:"
     tools=("$TOOLS_DIR"/*.sh)
     for i in "${!tools[@]}"; do
         tool_name=$(basename "${tools[$i]}" .sh | tr '_' ' ')
         echo "[$i] $tool_name"
     done
-    read -p "أدخل رقم الأداة: " index
+    read -p "Enter tool number: " index
     if [ -f "${tools[$index]}" ]; then
         rm "${tools[$index]}"
-        echo "تم حذف الأداة!"
+        echo "Tool deleted successfully!"
     else
-        echo "رقم الأداة غير صحيح!"
+        echo "Invalid tool number!"
     fi
 }
 
 # دالة إعادة التثبيت
 reinstall_toolkit() {
-    echo -e "\n------- إعادة التثبيت -------"
+    echo -e "\n------- Reinstall Toolkit -------"
     chmod +x install.sh
     ./install.sh
 }
 
-# القائمة الرئيسية
-echo -e "\n[1] أداة مسح المنافذ"
-echo "[2] أداة فحص الثغرات"
-echo "[3] أداة تحليل الشبكة"
-echo "[4] إضافة أداة جديدة"
-echo "[5] حذف أداة"
-echo "[6] إعادة تثبيت الأدوات"
-echo "[7] الخروج"
+# القائمة الرئيسية (English)
+echo -e "\n[1] Port Scanner"
+echo "[2] Vulnerability Checker"
+echo "[3] Network Analyzer"
+echo "[4] Add New Tool"
+echo "[5] Delete Tool"
+echo "[6] Reinstall Toolkitt"
+echo "[7] Exit"
 
-read -p "اختر خيارًا: " choice
+read -p "Choose an option: " choice
 
 case $choice in
     1) ./tools/port_scanner.sh ;;
@@ -49,5 +49,5 @@ case $choice in
     5) delete_tool ;;
     6) reinstall_toolkit ;;
     7) exit 0 ;;
-    *) echo "اختيار غير صحيح!" ;;
+    *) echo "Invalid choice!" ;;
 esac
