@@ -1,6 +1,6 @@
 #!/bin/bash
-echo "أداة مسح المنافذ باستخدام Nmap"
-read -p "أدخل عنوان IP: " ip
+echo "Port Scanner By namp"
+read -p "Enter Website Ip: " ip
 nmap -sV $ip
-read -p "اضغط Enter للعودة إلى القائمة..."
+read -p "Chose Enter To Exit"
 ./toolkit.sh
