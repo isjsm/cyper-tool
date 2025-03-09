@@ -1,6 +1,6 @@
 #!/bin/bash
-echo "Port Scanner By namp"
-read -p "Enter Website Ip: " ip
+echo "Port Scanner Tool"
+read -p "Enter IP address: " ip
 nmap -sV $ip
-read -p "Chose Enter To Exit"
+read -p "Press Enter to return..."
 ./toolkit.sh
